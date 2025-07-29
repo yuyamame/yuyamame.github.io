@@ -59,13 +59,14 @@
 
     .main-content {
       display: none;
-      flex-direction: column;
-      align-items: center;
+      /* flex container for centering player */
+      display: flex;
       justify-content: center;
-      text-align: center;
-      background-color: #111;
+      align-items: center;
+      height: 100vh;
     }
 
+    /* 再生ページのスタイル（いただいたもの） */
     .player {
       text-align: center;
       background: #1e1e1e;
@@ -73,33 +74,24 @@
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       max-width: 320px;
+      color: #fff;
     }
-
     .cover {
       width: 100%;
       border-radius: 15px;
       margin-bottom: 20px;
     }
-
     .title {
       font-size: 1.2rem;
       margin-bottom: 10px;
       font-weight: bold;
     }
-
     audio {
       width: 100%;
       outline: none;
     }
-
     audio::-webkit-media-controls-panel {
       background-color: #222;
-    }
-
-    .tip {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #ccc;
     }
   </style>
 </head>
@@ -127,12 +119,8 @@
       <div class="title">Pensive Miss</div>
       <audio controls>
         <source src="song.mp3" type="audio/mpeg" />
-        お使いのブラウザは audio タグをサポートしていません。
+        Your browser does not support the audio element.
       </audio>
-      <div class="tip">
-        お湯は93℃くらいがちょうどいいですよ。<br>
-        香りを感じてみて。
-      </div>
     </div>
   </div>
 
