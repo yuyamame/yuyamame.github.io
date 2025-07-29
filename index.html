@@ -3,54 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Music</title>
+  <title>Prologue</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #111;
+      background: #000;
       color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      overflow: hidden;
     }
-    .player {
+    .prologue {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      background: #1e1e1e;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      max-width: 320px;
+      opacity: 1;
+      transition: opacity 2s ease;
     }
-    .cover {
+    .prologue h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .prologue p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    .steam {
+      position: absolute;
+      bottom: 0;
       width: 100%;
-      border-radius: 15px;
-      margin-bottom: 20px;
+      height: 100%;
+      background: url('steam.gif') center bottom no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+      animation: fadeOut 5s forwards 5s;
     }
-    .title {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      font-weight: bold;
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+      }
     }
-    audio {
-      width: 100%;
-      outline: none;
-    }
-    audio::-webkit-media-controls-panel {
-      background-color: #222;
+    .main-content {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="player">
-    <img src="cover.jpg" alt="ジャケット写真" class="cover" />
-    <div class="title">Pensive Miss</div>
-    <audio controls>
-      <source src="song.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
+  <div class="prologue" id="prologue">
+    <h1>このコーヒー豆は、<br>作り手の想いを込めて焙煎されました。</h1>
+    <p>深く物思いにふけるような旋律とともに、<br>この一杯をどうぞ。</p>
+    <div class="steam"></div>
   </div>
+
+  <div class="main-content" id="mainContent">
+    <div class="player" style="text-align:center;background:#1e1e1e;padding:30px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.5);max-width:320px;margin:auto;">
+      <img src="cover.jpg" alt="ジャケット写真" class="cover" style="width:100%;border-radius:15px;margin-bottom:20px;" />
+      <div class="title" style="font-size:1.2rem;margin-bottom:10px;font-weight:bold;">Pensive Miss</div>
+      <audio controls style="width:100%;">
+        <source src="song.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+      <p style="margin-top:20px;font-size:0.9rem;color:#ccc;">
+        お湯は93℃くらいがちょうどいいですよ。<br>香りを感じてみて。
+      </p>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('prologue').style.opacity = 0;
+    }, 5000); // 5秒後にフェードアウト
+
+    setTimeout(() => {
+      document.getElementById('prologue').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    }, 7000); // 7秒後にメインコンテンツ表示
+  </script>
 </body>
 </html>
