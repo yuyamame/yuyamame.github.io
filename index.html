@@ -63,6 +63,43 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      background-color: #111;
+    }
+
+    .player {
+      text-align: center;
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      max-width: 320px;
+    }
+
+    .cover {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    audio {
+      width: 100%;
+      outline: none;
+    }
+
+    audio::-webkit-media-controls-panel {
+      background-color: #222;
+    }
+
+    .tip {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #ccc;
     }
   </style>
 </head>
@@ -85,11 +122,18 @@
   <div class="steam" id="steam"></div>
 
   <div class="main-content" id="main">
-    <h1>🎵 再生ページ 🎵</h1>
-    <audio controls>
-      <source src="your-music.mp3" type="audio/mpeg">
-      お使いのブラウザは audio タグをサポートしていません。
-    </audio>
+    <div class="player">
+      <img src="cover.jpg" alt="ジャケット写真" class="cover" />
+      <div class="title">Pensive Miss</div>
+      <audio controls>
+        <source src="song.mp3" type="audio/mpeg" />
+        お使いのブラウザは audio タグをサポートしていません。
+      </audio>
+      <div class="tip">
+        お湯は93℃くらいがちょうどいいですよ。<br>
+        香りを感じてみて。
+      </div>
+    </div>
   </div>
 
   <script>
@@ -101,6 +145,7 @@
       document.getElementById("main").style.display = "flex";
     } else {
       localStorage.setItem("seenPrologue", "true");
+
       setTimeout(() => {
         document.getElementById("steam").style.display = "block";
       }, 2500);
