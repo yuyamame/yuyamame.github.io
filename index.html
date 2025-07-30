@@ -2,22 +2,19 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yuyamame x Swing Streak Jazz Orchestra</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
+    html, body {
+      margin: 0; padding: 0; height: 100%;
       font-family: 'Helvetica Neue', sans-serif;
       background-color: #4b2e1e;
       color: #eee;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
       overflow: hidden;
     }
-
     .prologue {
       max-width: 600px;
       padding: 2rem;
@@ -29,7 +26,6 @@
       z-index: 2;
       position: relative;
     }
-
     .prologue button {
       margin-top: 1.5rem;
       padding: 0.6rem 1.2rem;
@@ -41,11 +37,9 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
-
     .prologue button:hover {
       background-color: #666;
     }
-
     .steam {
       position: absolute;
       top: 50%;
@@ -59,7 +53,6 @@
       z-index: 1;
       display: none;
     }
-
     @keyframes rise {
       0% {
         transform: translate(-50%, -50%) scale(0);
@@ -73,14 +66,12 @@
         opacity: 0;
       }
     }
-
     .main-content {
       display: none;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
-
     .player {
       text-align: center;
       background: #1e1e1e;
@@ -90,24 +81,20 @@
       max-width: 320px;
       color: #fff;
     }
-
     .cover {
       width: 100%;
       border-radius: 15px;
       margin-bottom: 20px;
     }
-
     .title {
       font-size: 1.2rem;
       margin-bottom: 10px;
       font-weight: bold;
     }
-
     audio {
       width: 100%;
       outline: none;
     }
-
     audio::-webkit-media-controls-panel {
       background-color: #222;
     }
@@ -149,10 +136,8 @@
       const steam = document.getElementById("steam");
       const main = document.getElementById("main");
 
-      // スチームを表示してから再生画面に遷移
       steam.style.display = "block";
 
-      // 蒸気のアニメーション → 2秒後に再生画面へ
       setTimeout(() => {
         prologue.style.display = "none";
         steam.style.display = "none";
